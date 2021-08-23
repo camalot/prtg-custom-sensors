@@ -1,0 +1,19 @@
+{
+    "prtg": {
+        "description" : {
+            "device": "https://api.sigfox.com",
+            "query": "/v2/device-types/{DEVICE_TYPE}",
+            "comment": "Replace {DEVICE_TYPE} with your actual device type. Get a list of all device types by calling https://api.sigfox.com/v2/device-types"
+        },
+        "result": [{
+                "channel": "Active",
+                "ValueLookup": "prtg.standardlookups.sigfox.keepalive",
+                "value": $.keepAlive
+            }, {
+                "channel": "Keep Alive",
+                "CustomUnit": "min",
+                "value": $.keepAlive
+            }
+        ]
+    }
+}

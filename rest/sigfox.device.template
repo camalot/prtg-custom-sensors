@@ -1,0 +1,30 @@
+{
+    "prtg": {
+        "description" : {
+            "device": "https://api.sigfox.com",
+            "query": "/v2/devices/{DEVICE_ID}",
+            "comment": "Replace {DEVICE_ID} with your actual device id. Get a list of all device IDs by calling https://api.sigfox.com/v2/devices"
+        },
+        "result": [{
+                "channel": "Latitude",
+                "unit": "Custom",
+                "value": $.location.lat
+            },
+            {
+                "channel": "Longitude",
+                "unit": "Custom",
+                "value": $.location.lng
+            },
+            {
+                "channel": "State",
+                "ValueLookup": "prtg.standardlookups.sigfox.device.state",
+                "value": $.state
+            },
+            {
+                "channel": "Token State",
+                "ValueLookup": "prtg.standardlookups.sigfox.device.token.state",
+                "value": $.token.state
+            }
+        ]
+    }
+}
